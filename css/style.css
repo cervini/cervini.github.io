@@ -2,24 +2,24 @@
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
-    background-color: #1a202c; /* Dark background */
-    color: #a0aec0; /* Light gray text */
+    background-color: #002b36; /* base03 */
+    color: #839496; /* base0 */
     line-height: 1.6;
 }
 
 h1, h2, h3 {
     font-weight: 700;
-    color: #f7fafc; /* White text for headings */
+    color: #93a1a1; /* base1 */
 }
 
 a {
-    color: #ed4e4e; /* Brighter blue for links */
+    color: #cb4b16; /* orange */
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #ed6f6f; /* Lighter blue on hover */
+    color: #dc322f; /* red */
 }
 
 img {
@@ -30,7 +30,7 @@ img {
 
 /* Header & Navigation */
 header {
-    background: #2d3748; /* Slightly lighter dark shade */
+    background: #073642; /* base02 */
     padding: 1rem 2rem;
     box-shadow: 0 2px 4px rgba(0,0,0,0.4);
     position: sticky;
@@ -49,7 +49,7 @@ nav {
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #f7fafc;
+    color: #93a1a1; /* base1 */
     display: flex;
     align-items: center; /* This vertically aligns the logo and text */
     gap: 10px; /* This adds a small space between the logo and the text */
@@ -81,7 +81,7 @@ main {
 
 section {
     padding: 4rem 0;
-    border-bottom: 1px solid #4a5568; /* Darker border */
+    border-bottom: 1px solid #586e75; /* base01 */
 }
 
 section:last-of-type {
@@ -98,7 +98,7 @@ h2 {
 #hero {
     text-align: center;
     padding: 6rem 0;
-    border-top: 1px solid #4a5568;
+    border-top: 1px solid #586e75; /* base01 */
 }
 
 .hero-content h1 {
@@ -108,13 +108,13 @@ h2 {
 
 .hero-content p {
     font-size: 1.2rem;
-    color: #a0aec0;
+    color: #839496; /* base0 */
     margin-bottom: 2rem;
 }
 
 .cta-button {
-    background-color: #ed4e4e;
-    color: #1a202c;
+    background-color: #b58900; /* yellow (less saturated) */
+    color: #002b36; /* base03 */
     padding: 0.8rem 1.5rem;
     border-radius: 5px;
     font-weight: 700;
@@ -122,8 +122,8 @@ h2 {
 }
 
 .cta-button:hover {
-    background-color: #ed6f6f;
-    color: #1a202c;
+    background-color: #cb4b16; /* orange (brighter hover) */
+    color: #002b36; /* base03 */
 }
 
 /* About Section */
@@ -147,7 +147,7 @@ h2 {
 }
 
 .project-card {
-    background: #2d3748;
+    background: #073642; /* base02 */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     overflow: hidden;
@@ -181,7 +181,7 @@ h2 {
     border-radius: 10%; /* Round edges */
     object-fit: cover;
     margin-right: 1rem; /* Space between logo and title */
-    background-color: #4a5568; /* A fallback background color */
+    background-color: #586e75; /* base01 */
 }
 
 .project-card h3 {
@@ -209,12 +209,12 @@ h2 {
 footer {
     text-align: center;
     padding: 2rem;
-    background-color: #2d3748;
-    color: #a0aec0;
+    background-color: #073642; /* base02 */
+    color: #839496; /* base0 */
 }
 
 .status-wip {
-  color: #eab308; /* A nice yellow, feel free to change */
+  color: #b58900; /* yellow */
   font-weight: bold;
 }
 
