@@ -271,6 +271,10 @@ footer {
     opacity: 1;
 }
 
+/* only show when near bottom */
+.secret-button.visible {
+    opacity: 1;
+}
 body.eleonora {
     background-color: #4d3c3c; /* darkest brown from palette */
     color: #e0c5b0; /* lighter peach text for better contrast */
@@ -309,7 +313,7 @@ body.eleonora h1, body.eleonora h2, body.eleonora h3 {
 
 .cozy-input,
 .cozy-button {
-    width: 100%;
+    width: 90%;
     padding: 0.8rem;
     font-size: 1.2rem;
     margin-bottom: 1rem;

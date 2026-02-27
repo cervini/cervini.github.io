@@ -13,6 +13,16 @@ document.addEventListener('DOMContentLoaded', () => {
             // Scrolling up: remove the class to show the header
             header.classList.remove('header-hidden');
         }
+        // Determine if we're near the bottom of the page
+        const secret = document.querySelector('.secret-button');
+        if (secret) {
+            const nearBottom = window.scrollY + window.innerHeight >= document.body.scrollHeight - 50;
+            if (nearBottom) {
+                secret.classList.add('visible');
+            } else {
+                secret.classList.remove('visible');
+            }
+        }
         // Update the last scroll position for the next event
         lastScrollY = window.scrollY;
     });
