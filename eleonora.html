@@ -16,11 +16,18 @@
                 const lines = input.value.split(/\r?\n/).map(l => l.trim()).filter(l => l);
                 let totalMinutes = 0;
                 for (const l of lines) {
-                    // accept hh:mm or hh,mm or hh.mm
+                    // accept hh:mm or hh,mm or hh.mm or just hh
                     const parts = l.split(/[\:,\.]/);
-                    if (parts.length !== 2) continue;
-                    const h = parseInt(parts[0], 10);
-                    const m = parseInt(parts[1], 10);
+                    let h = 0, m = 0;
+                    if (parts.length === 1) {
+                        // single number -> treat as hours
+                        h = parseInt(parts[0], 10);
+                    } else if (parts.length === 2) {
+                        h = parseInt(parts[0], 10);
+                        m = parseInt(parts[1], 10);
+                    } else {
+                        continue;
+                    }
                     if (!isNaN(h) && !isNaN(m)) {
                         totalMinutes += h * 60 + m;
                     }
