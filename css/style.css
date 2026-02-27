@@ -255,3 +255,96 @@ footer {
         font-size: 2.5rem;
     }
 }
+
+/* Secret button hidden link */
+.secret-button {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    opacity: 0.1;
+    transition: opacity 0.3s ease;
+    z-index: 2000;
+}
+.secret-button:hover,
+.secret-button:focus {
+    opacity: 1;
+}
+
+body.eleonora {
+    background-color: #4d3c3c; /* darkest brown from palette */
+    color: #e0c5b0; /* lighter peach text for better contrast */
+}
+
+body.eleonora header,
+body.eleonora footer {
+    background-color: #c3978a; /* dusty rose/brown */
+}
+
+body.eleonora a {
+    color: #cd8080; /* muted rose link */
+    font-weight: 700;
+}
+
+/* make main navigation link more visible */
+body.eleonora .logo {
+    color: #ffffff; /* white for high contrast */
+}
+body.eleonora .logo img {
+    filter: brightness(0.9);
+}
+
+body.eleonora h1, body.eleonora h2, body.eleonora h3 {
+    color: #a05a5a; /* deep rose headline */
+}
+
+.cozy-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: #5a403e; /* medium dark mauve */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+
+.cozy-input,
+.cozy-button {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.cozy-input {
+    background-color: #4d3c3c; /* match page bg */
+    color: #e0c5b0;
+    border: 1px solid #a05a5a;
+    border-radius: 5px;
+    resize: vertical;
+}
+
+.cozy-button {
+    background-color: #c3978a; /* similar to header */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #4d3c3c;
+    font-weight: 700;
+}
+
+.cozy-button:hover {
+    background-color: #cd8080; /* slightly lighter rose */
+    color: #4d3c3c;
+}
+
+/* footer note readability */
+body.eleonora footer p {
+    color: #4d3c3c; /* dark text against lighter footer */
+    font-size: 0.9rem;
+    text-align: center;
+}.result-display {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: 700;
+}

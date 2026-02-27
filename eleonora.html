@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eleonora's Total Hour Calculator</title>
+    <link rel="icon" type="image/x-icon" href="assets/logo.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const input = document.getElementById('time-input');
+            const button = document.getElementById('calc-button');
+            const result = document.getElementById('result');
+
+            function calculateTotal() {
+                const lines = input.value.split(/\r?\n/).map(l => l.trim()).filter(l => l);
+                let totalMinutes = 0;
+                for (const l of lines) {
+                    const parts = l.split(':');
+                    if (parts.length !== 2) continue;
+                    const h = parseInt(parts[0], 10);
+                    const m = parseInt(parts[1], 10);
+                    if (!isNaN(h) && !isNaN(m)) {
+                        totalMinutes += h * 60 + m;
+                    }
+                }
+                const hours = Math.floor(totalMinutes / 60);
+                const minutes = totalMinutes % 60;
+                result.textContent = `${hours}:${minutes.toString().padStart(2, '0')}`;
+            }
+
+            button.addEventListener('click', calculateTotal);
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && e.shiftKey) {
+                    calculateTotal();
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+</head>
+<body class="eleonora">
+    <header>
+        <nav>
+            <a href="index.html" class="logo"><img src="assets/logo.png">Back</a>
+        </nav>
+    </header>
+    <main>
+        <section class="cozy-container">
+            <h1>Eleonora's Hour Counter</h1>
+            <p>Enter times (hh:mm) one per line, then tap calculate. Shift+Enter also works.</p>
+            <textarea id="time-input" class="cozy-input" rows="6" placeholder="e.g. 02:30"></textarea>
+            <button id="calc-button" class="cozy-button">Calculate</button>
+            <div id="result" class="result-display">0:00</div>
+        </section>
+    </main>
+    <footer>
+        <p>Spero ti sia utile, se non ti fidi scrivimi che riprovo a mano 🌺</p>
+    </footer>
+</body>
+</html>
