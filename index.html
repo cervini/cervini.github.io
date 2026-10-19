@@ -3,83 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simone Cervini</title>
+    <meta name="theme-color" content="#f8f8f6">
+    <meta name="description" content="Simone Cervini is a Computer Science Engineering graduate interested in software development and systems.">
+    <title>Simone Cervini — Computer Science Engineer</title>
     <link rel="icon" type="image/x-icon" href="assets/logo.ico">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    <script src="js/script.js"></script>
+    <script src="js/script.js" defer></script>
 </head>
 <body>
-
-    <header>
-        <nav>
-            <a href="#" class="logo"><img src="assets/logo.png">Simone Cervini</a>
-            <ul>
-                <li><a href="#about">About</a></li>
+    <header class="site-header">
+        <nav class="site-nav" aria-label="Main navigation">
+            <a class="brand" href="#">Simone Cervini</a>
+            <ul class="nav-links">
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contacts</a></li>
-                <li><a href="https://github.com/Cervini" target="_blank">GitHub</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="assets/CV - ENG.pdf">CV</a></li>
+                <li><a href="mailto:simonecervini99+web@gmail.com">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section id="hero">
-            <div class="hero-content">
-                <h1>Hi, I'm Simone Cervini</h1>
-                <p>A Computer Science Engineering graduate with a versatile skill set, from web development to hardware design.</p>
-                <!-- <a href="#projects" class="cta-button">View My Work</a> -->
+        <section class="intro" aria-labelledby="intro-title">
+            <p class="intro-role">Computer Science Engineer</p>
+            <h1 id="intro-title">Simone Cervini</h1>
+            <p class="intro-copy">I design and build software, with experience across web applications, desktop tools, and digital hardware.</p>
+            <div class="intro-links">
+                <a href="https://github.com/Cervini" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/simonecervini/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="mailto:simonecervini99+web@gmail.com">Email</a>
             </div>
         </section>
 
-        <section id="about">
-            <h2>About Me</h2>
-            <p>I'm a graduate in Computer Science Engineering with a passion for building software solutions. My experience ranges from developing web applications with <strong>Python, C, Java, JavaScript, and React</strong>, to hardware design with <strong>VHDL on FPGAs</strong>. I am a quick learner, and I'm always eager to tackle new challenges and technologies.</p>
-            <a href="assets/CV - ITA.pdf" class="cta-button">CV - Italian</a>
-            <a href="assets/CV - ENG.pdf" class="cta-button">CV - English</a>
+        <section id="projects" class="projects section" aria-labelledby="projects-title">
+            <div class="section-heading">
+                <h2 id="projects-title">Projects</h2>
+                <p>Selected work</p>
+            </div>
+
+            <article class="project project-featured">
+                <div class="project-number">01</div>
+                <div class="project-content">
+                    <div class="project-title-row">
+                        <h3>REInventory</h3>
+                        <span class="project-status">Latest project</span>
+                    </div>
+                    <p class="project-description">A shared inventory manager for tabletop RPG campaigns. Players organize items on a visual grid while campaign inventory changes sync in real time with the party and Dungeon Master.</p>
+                    <p class="project-detail">React 19 · Firebase · Firestore · @dnd-kit</p>
+                    <ul class="project-features">
+                        <li>Drag-and-drop inventory grid</li>
+                        <li>Shared, real-time campaigns</li>
+                        <li>Item compendium and installable PWA</li>
+                    </ul>
+                    <div class="project-links">
+                        <a href="https://re-inventory-v2.web.app" target="_blank" rel="noopener noreferrer">Live application <span aria-hidden="true">↗</span></a>
+                        <a href="https://github.com/Cervini/REInventory" target="_blank" rel="noopener noreferrer">Source code <span aria-hidden="true">↗</span></a>
+                    </div>
+                </div>
+                <img class="project-logo" src="assets/reinventory.png" alt="REInventory backpack logo">
+            </article>
+
+            <article class="project">
+                <div class="project-number">02</div>
+                <div class="project-content">
+                    <h3>Organizer</h3>
+                    <p class="project-description">A cross-platform Downloads folder organizer with a system-tray interface, configurable rules, drag-and-drop reordering, and automatic file sorting.</p>
+                    <p class="project-detail">Python · Windows · macOS · Linux</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Cervini/organizer/releases/tag/v2.1.2" target="_blank" rel="noopener noreferrer">Download <span aria-hidden="true">↗</span></a>
+                        <a href="https://github.com/Cervini/organizer" target="_blank" rel="noopener noreferrer">Source code <span aria-hidden="true">↗</span></a>
+                    </div>
+                </div>
+            </article>
         </section>
 
-        <section id="projects">
-            <h2>My Projects</h2>
-            <div class="project-grid">
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <div class="project-title-container">
-                        <img src="assets/reinventory.png" alt="REInventory" class="project-logo">
-                        <h3>REInventory [React]</h3>
-                    </div>
-                    <p>A real-time, shared inventory manager for Dungeons & Dragons, allowing Dungeon Masters to visually track player items on a drag-and-drop grid inspired by classic video games.</p>
-                    <a href="https://re-inventory-v2.web.app" class="project-link">Try it out!</a>
-                    <a href="https://github.com/Cervini/REInventory" class="project-link">View on GitHub</a>
-                </div>
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <div class="project-title-container">
-                        <img src="assets/broom.png" alt="Organizer Project" class="project-logo">
-                        <h3>Organizer [Python]</h3>
-                    </div>
-                    <p>Automatic Downloads folder organizer with system tray GUI. Create custom rules, drag-and-drop reordering, and smart file sorting for Windows/macOS/Linux.</p>
-                    <a href="https://github.com/Cervini/organizer/releases/tag/v2.1.2" class="project-link">Try it out!</a>
-                    <a href="https://github.com/Cervini/organizer" class="project-link">View on GitHub</a>
+        <section id="about" class="about section" aria-labelledby="about-title">
+            <div class="section-heading">
+                <h2 id="about-title">About</h2>
+            </div>
+            <div class="about-content">
+                <p>I graduated in Computer Science Engineering. My experience includes software development with Python, C, Java, JavaScript, and React, as well as digital hardware design using VHDL and FPGAs.</p>
+                <p>I am interested in how software systems are designed, built, and used to solve practical problems.</p>
+                <div class="cv-links">
+                    <a href="assets/CV - ENG.pdf">Curriculum vitae — English <span aria-hidden="true">↓</span></a>
+                    <a href="assets/CV - ITA.pdf">Curriculum vitae — Italian <span aria-hidden="true">↓</span></a>
                 </div>
             </div>
-        </section>
-
-        <section id="contact">
-            <h2>Contacts</h2>
-            <p>I'm always open to new opportunities. Feel free to reach out!</p>
-            <a href="mailto:simonecervini99+web@gmail.com" class="cta-button">Email Me</a>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2026 Simone Cervini</p>
+    <footer class="site-footer">
+        <span>© 2026 Simone Cervini</span>
+        <a href="eleonora.html" class="secret-button" aria-label="Secret page">⏱️</a>
+        <a href="mailto:simonecervini99+web@gmail.com">Get in touch</a>
     </footer>
-
-    <!-- secret link for Eleonora total-hour calculator -->
-    <a href="eleonora.html" class="secret-button" aria-label="Secret page">⏱️</a>
-
 </body>
 </html>
