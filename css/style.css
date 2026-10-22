@@ -4,8 +4,29 @@
     --text: #202421;
     --muted: #656b66;
     --line: #d9dcd7;
-    --link: #315b4b;
+    --accent: #efa050;
+    --accent-soft: #faeadb;
+    --accent-line: #e8c29b;
+    --accent-text: var(--text);
+    --focus: #a85212;
+    --scrollbar-thumb: #c46a21;
+    --link: var(--text);
     --content-width: 860px;
+}
+
+:root[data-theme="dark"] {
+    color-scheme: dark;
+    --background: #191919;
+    --text: #eeefec;
+    --muted: #a8ada7;
+    --line: #383b37;
+    --accent: #ff9b54;
+    --accent-soft: #35281f;
+    --accent-line: #775037;
+    --accent-text: var(--accent);
+    --focus: var(--accent);
+    --scrollbar-thumb: var(--accent);
+    --link: var(--accent);
 }
 
 * {
@@ -14,7 +35,50 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 5rem;
+    scroll-padding-top: 5.5rem;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Chromium ignores ::-webkit-scrollbar when scrollbar-color is set, so scope it to Firefox. */
+@supports not selector(::-webkit-scrollbar) {
+    html {
+        scrollbar-width: thin;
+        scrollbar-color: var(--scrollbar-thumb) var(--background);
+    }
+}
+
+::-webkit-scrollbar {
+    width: 14px;
+    height: 14px;
+    background: var(--background);
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-corner {
+    background: var(--background);
+}
+
+::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+::-webkit-scrollbar-thumb {
+    min-height: 48px;
+    border: 4px solid transparent;
+    border-radius: 999px;
+    background: var(--scrollbar-thumb) padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:active {
+    border-width: 3px;
+}
+
+::selection {
+    background: var(--accent-soft);
+    color: var(--text);
 }
 
 body {
@@ -29,21 +93,54 @@ body {
 
 a {
     color: var(--link);
+    text-decoration-color: var(--accent-line);
     text-decoration-thickness: 1px;
     text-underline-offset: 3px;
+    transition: color 160ms ease, text-decoration-color 160ms ease, text-underline-offset 160ms ease;
 }
 
-a:hover {
-    color: var(--text);
+a > span[aria-hidden="true"] {
+    display: inline-block;
+    transition: transform 180ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-a:focus-visible {
-    outline: 2px solid currentColor;
+@media (hover: hover) {
+    a:hover {
+        color: var(--text);
+        text-decoration-color: var(--accent);
+        text-underline-offset: 4px;
+    }
+
+    a:hover > span[aria-hidden="true"] {
+        transform: translate(2px, -2px);
+    }
+
+    .cv-links a:hover > span[aria-hidden="true"] {
+        transform: translateY(2px);
+    }
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--focus);
     outline-offset: 3px;
+    border-radius: 3px;
 }
 
 .site-header {
-    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid var(--accent-line);
+    background: var(--background);
+}
+
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+    .site-header {
+        background: color-mix(in srgb, var(--background) 86%, transparent);
+        -webkit-backdrop-filter: saturate(1.4) blur(12px);
+        backdrop-filter: saturate(1.4) blur(12px);
+    }
 }
 
 .site-nav,
@@ -62,10 +159,88 @@ main,
 }
 
 .brand {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 0.65rem;
     color: var(--text);
     font-size: 0.92rem;
     font-weight: 600;
     text-decoration: none;
+}
+
+.brand-logo {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    transition: transform 220ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@media (hover: hover) {
+    .brand:hover .brand-logo {
+        transform: translateY(-2px);
+    }
+}
+
+.brand:active .brand-logo {
+    transform: translateY(0) scale(0.92);
+    transition-duration: 80ms;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.theme-toggle {
+    display: inline-grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 1px solid var(--accent-line);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--accent-text);
+    cursor: pointer;
+    transition: background-color 160ms ease, border-color 160ms ease, transform 120ms ease;
+}
+
+@media (hover: hover) {
+    .theme-toggle:hover {
+        background: var(--accent-soft);
+        border-color: var(--accent);
+    }
+}
+
+.theme-toggle:active {
+    transform: scale(0.92);
+    transition-duration: 60ms;
+}
+
+.theme-switching .theme-toggle svg {
+    animation: icon-in 320ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes icon-in {
+    from {
+        opacity: 0;
+        transform: rotate(-90deg) scale(0.5);
+    }
+}
+
+.theme-toggle[hidden],
+.theme-toggle .lucide-sun,
+[data-theme="dark"] .theme-toggle .lucide-moon {
+    display: none;
+}
+
+[data-theme="dark"] .theme-toggle .lucide-sun {
+    display: block;
 }
 
 .nav-links {
@@ -78,14 +253,44 @@ main,
 }
 
 .nav-links a {
+    position: relative;
+    display: block;
+    padding: 0.3rem 0;
     color: var(--muted);
     font-size: 0.84rem;
     text-decoration: none;
 }
 
-.nav-links a:hover {
-    color: var(--text);
-    text-decoration: underline;
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0.15rem;
+    left: 0;
+    height: 2px;
+    border-radius: 1px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.nav-links a[aria-current] {
+    color: var(--accent-text);
+}
+
+.nav-links a[aria-current]::after {
+    transform: scaleX(1);
+}
+
+@media (hover: hover) {
+    .nav-links a:hover {
+        color: var(--accent-text);
+    }
+
+    .nav-links a:hover::after {
+        transform: scaleX(1);
+    }
 }
 
 .intro {
@@ -95,7 +300,7 @@ main,
 
 .intro-role {
     margin: 0 0 0.7rem;
-    color: var(--muted);
+    color: var(--accent-text);
     font-size: 0.9rem;
 }
 
@@ -123,8 +328,19 @@ main,
 }
 
 .section {
+    position: relative;
     padding: 2.4rem 0 3.5rem;
-    border-top: 1px solid var(--line);
+    border-top: 1px solid var(--accent-line);
+}
+
+.section::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 48px;
+    height: 2px;
+    background: var(--accent);
 }
 
 .section-heading {
@@ -163,7 +379,7 @@ main,
 
 .project-number {
     padding-top: 0.22rem;
-    color: #858b85;
+    color: var(--muted);
     font-size: 0.78rem;
     font-variant-numeric: tabular-nums;
 }
@@ -183,7 +399,7 @@ main,
 }
 
 .project-status {
-    color: var(--muted);
+    color: var(--accent-text);
     font-size: 0.74rem;
 }
 
@@ -196,7 +412,7 @@ main,
 
 .project-detail {
     margin: 0 0 0.65rem;
-    color: #777d77;
+    color: var(--muted);
     font-size: 0.78rem;
 }
 
@@ -247,7 +463,7 @@ main,
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    border-top: 1px solid var(--line);
+    border-top: 1px solid var(--accent-line);
     color: var(--muted);
     font-size: 0.78rem;
 }
@@ -265,14 +481,24 @@ main,
 
     .site-nav {
         min-height: 64px;
-        align-items: flex-start;
-        flex-direction: column;
-        justify-content: center;
-        gap: 0.25rem;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 36px;
+        gap: 0.25rem 1rem;
         padding: 0.55rem 0;
     }
 
+    .nav-actions {
+        display: contents;
+    }
+
+    .theme-toggle {
+        grid-column: 2;
+        grid-row: 1 / 3;
+    }
+
     .nav-links {
+        grid-column: 1;
+        grid-row: 2;
         gap: 1rem;
     }
 
@@ -310,6 +536,13 @@ main,
     }
 }
 
+.theme-switching,
+.theme-switching *,
+.theme-switching *::before,
+.theme-switching *::after {
+    transition: background-color 240ms ease, color 240ms ease, border-color 240ms ease, text-decoration-color 240ms ease !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
@@ -319,5 +552,6 @@ main,
     *::before,
     *::after {
         transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
     }
 }

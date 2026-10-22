@@ -7,19 +7,33 @@
     <meta name="description" content="Simone Cervini is a Computer Science Engineering graduate interested in software development and systems.">
     <title>Simone Cervini — Computer Science Engineer</title>
     <link rel="icon" type="image/x-icon" href="assets/logo.ico">
+    <script src="js/script.js"></script>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/script.js" defer></script>
 </head>
 <body>
     <header class="site-header">
         <nav class="site-nav" aria-label="Main navigation">
-            <a class="brand" href="#">Simone Cervini</a>
-            <ul class="nav-links">
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="assets/CV - ENG.pdf">CV</a></li>
-                <li><a href="mailto:simonecervini99+web@gmail.com">Contact</a></li>
-            </ul>
+            <a class="brand" href="#">
+                <img class="brand-logo" src="assets/logo.png" alt="" width="32" height="32">
+                <span>Simone Cervini</span>
+            </a>
+            <div class="nav-actions">
+                <ul class="nav-links">
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="assets/CV - ENG.pdf">CV</a></li>
+                    <li><a href="mailto:simonecervini99+web@gmail.com">Contact</a></li>
+                </ul>
+                <button class="theme-toggle" type="button" aria-label="Dark theme" aria-pressed="false" title="Switch to dark theme" hidden>
+                    <svg class="lucide lucide-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6.25 6.25 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" />
+                    </svg>
+                    <svg class="lucide lucide-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4" />
+                        <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42" />
+                    </svg>
+                </button>
+            </div>
         </nav>
     </header>
 
@@ -74,6 +88,7 @@
                         <a href="https://github.com/Cervini/organizer" target="_blank" rel="noopener noreferrer">Source code <span aria-hidden="true">↗</span></a>
                     </div>
                 </div>
+                <img class="project-logo" src="assets/broom.png" alt="Organizer logo">
             </article>
         </section>
 
@@ -82,7 +97,7 @@
                 <h2 id="about-title">About</h2>
             </div>
             <div class="about-content">
-                <p>I graduated in Computer Science Engineering. My experience includes software development with Python, C, Java, JavaScript, and React, as well as digital hardware design using VHDL and FPGAs.</p>
+                <p>I have a Bachelor's Degree in Computer Engineering at Politecnico di Milano. My experience includes software development with Python, C, Java, JavaScript, and React, as well as digital hardware design using VHDL and FPGAs.</p>
                 <p>I am interested in how software systems are designed, built, and used to solve practical problems.</p>
                 <div class="cv-links">
                     <a href="assets/CV - ENG.pdf">Curriculum vitae — English <span aria-hidden="true">↓</span></a>
