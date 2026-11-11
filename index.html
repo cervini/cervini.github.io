@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#f8f8f6">
-    <meta name="description" content="Simone Cervini is a Computer Science Engineering graduate interested in software development and systems.">
-    <title>Simone Cervini — Computer Engineer</title>
+    <meta name="description" content="Simone Cervini is a software engineer working on microservices, backend and full-stack systems.">
+    <title>Simone Cervini — Software Engineer | Microservices &amp; System Design</title>
     <link rel="icon" type="image/x-icon" href="assets/logo.ico">
     <script src="js/script.js"></script>
     <link rel="stylesheet" href="css/style.css">
@@ -39,9 +39,9 @@
 
     <main>
         <section class="intro" aria-labelledby="intro-title">
-            <p class="intro-role">Computer Engineer</p>
+            <p class="intro-role">Software Engineer | Microservices &amp; System Design</p>
             <h1 id="intro-title">Simone Cervini</h1>
-            <p class="intro-copy">I design and build software, with experience across web applications, desktop tools, and digital hardware.</p>
+            <p class="intro-copy">I build backend and full-stack systems, from Java microservices to real-time web apps.</p>
             <div class="intro-links">
                 <a href="https://github.com/Cervini" target="_blank" rel="noopener noreferrer">GitHub</a>
                 <a href="https://www.linkedin.com/in/simonecervini/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
@@ -69,6 +69,11 @@
                         <li>Shared, real-time campaigns</li>
                         <li>Item compendium and installable PWA</li>
                     </ul>
+                    <div class="project-notes">
+                        <p><strong>Backend choice.</strong> I used Firestore for sync because it already provided real-time updates and was free at my initial user count. A tabletop session doesn't need the ultra-low latency that WebSockets would offer, so a custom server wasn't worth the extra work.</p>
+                        <p><strong>Conflicts.</strong> If two players place the same item, the first one keeps it. The app supports games between friends with their own house rules and a DM who decides, so heavier conflict resolution would add complexity nobody needs.</p>
+                        <p><strong>Hardest part.</strong> Making drag and drop on the grid feel satisfying to use.</p>
+                    </div>
                     <div class="project-links">
                         <a href="https://re-inventory-v2.web.app" target="_blank" rel="noopener noreferrer">Live application <span aria-hidden="true">↗</span></a>
                         <a href="https://github.com/Cervini/REInventory" target="_blank" rel="noopener noreferrer">Source code <span aria-hidden="true">↗</span></a>
@@ -81,8 +86,11 @@
                 <div class="project-number">02</div>
                 <div class="project-content">
                     <h3>Organizer</h3>
-                    <p class="project-description">A cross-platform Downloads folder organizer with a system-tray interface, configurable rules, drag-and-drop reordering, and automatic file sorting.</p>
+                    <p class="project-description">A Downloads folder organizer with a system-tray interface, configurable rules, drag-and-drop reordering, and automatic file sorting.</p>
                     <p class="project-detail">Python · Windows</p>
+                    <div class="project-notes">
+                        <p><strong>Hardest part.</strong> Building the installer: turning a Python script into something anyone can download from the releases page and install like any other app.</p>
+                    </div>
                     <div class="project-links">
                         <a href="https://github.com/Cervini/organizer/releases/latest" target="_blank" rel="noopener noreferrer">Download <span aria-hidden="true">↗</span></a>
                         <a href="https://github.com/Cervini/organizer" target="_blank" rel="noopener noreferrer">Source code <span aria-hidden="true">↗</span></a>
@@ -97,7 +105,8 @@
                 <h2 id="about-title">About</h2>
             </div>
             <div class="about-content">
-                <p>I have a Bachelor's Degree in Computer Engineering at Politecnico di Milano. My experience includes software development with Python, C, Java, JavaScript, and React, as well as digital hardware design using VHDL and FPGAs.</p>
+                <p>I work at Accenture, where I built five full-stack proofs of concept for an enterprise IoT platform in a team of two (React, MQTT, APIs, database, WebMCP), presented to major Italian clients. I now develop Java/Spring microservices and SDK components for a digital payments platform.</p>
+                <p>I have a Bachelor's Degree in Computer Engineering from Politecnico di Milano. Outside of work I build with React and Firebase, Python and C, and I have designed digital hardware in VHDL on FPGAs.</p>
                 <p>I am interested in how software systems are designed, built, and used to solve practical problems.</p>
                 <div class="cv-links">
                     <a href="assets/CV - ENG.pdf">Curriculum vitae — English <span aria-hidden="true">↓</span></a>
